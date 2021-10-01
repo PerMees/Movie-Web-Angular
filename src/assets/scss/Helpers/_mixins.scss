@@ -1,0 +1,236 @@
+@mixin transition($selector, $time, $type) {
+  transition: $selector $time $type;
+  -o-transition: $selector $time $type;
+  -moz-transition: $selector $time $type;
+  -webkit-transition: $selector $time $type;
+}
+@mixin box-shadow($s1, $s2, $s3, $s4, $c, $type) {
+  @if $type != "" {
+    -webkit-box-shadow: $s1 $s2 $s3 $s4 $c $type;
+    box-shadow: $s1 $s2 $s3 $s4 $c $type;
+  } @else {
+    -webkit-box-shadow: $s1 $s2 $s3 $s4 $c;
+    box-shadow: $s1 $s2 $s3 $s4 $c;
+  }
+}
+@mixin text($fz, $fw, $c) {
+  font-size: $fz;
+  font-weight: $fw;
+  @if $c != "" {
+    color: $c;
+  }
+}
+// Border-radius
+@mixin rounded($type) {
+  @if $type== "none" {
+    border-radius: 0px;
+  } @else if $type== "sm" {
+    border-radius: 0.125rem;
+  } @else if $type== "" {
+    border-radius: 0.25rem;
+  } @else if $type== "md" {
+    border-radius: 0.375rem;
+  } @else if $type== "lg" {
+    border-radius: 0.5rem;
+  } @else if $type== "xl" {
+    border-radius: 0.75rem;
+  } @else if $type== "2xl" {
+    border-radius: 1rem;
+  } @else if $type== "3xl" {
+    border-radius: 1.5rem;
+  } @else if $type== "full" {
+    border-radius: 9999px;
+  } @else if $type== "t-none" {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  } @else if $type== "t-sm" {
+    border-top-left-radius: 0.125rem;
+    border-top-right-radius: 0.125rem;
+  } @else if $type== "t" {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  } @else if $type== "t-md" {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+  } @else if $type== "t-lg" {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  } @else if $type== "t-xl" {
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+  } @else if $type== "t-2xl" {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  } @else if $type== "t-3xl" {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+  } @else if $type== "t-full" {
+    border-top-left-radius: 9999px;
+    border-top-right-radius: 9999px;
+  } @else if $type== "r-none" {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  } @else if $type== "r-sm" {
+    border-top-right-radius: 0.125rem;
+    border-bottom-right-radius: 0.125rem;
+  } @else if $type== "r" {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  } @else if $type== "r-md" {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+  } @else if $type== "r-lg" {
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  } @else if $type== "r-xl" {
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem;
+  } @else if $type== "r-2xl" {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  } @else if $type== "r-3xl" {
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  } @else if $type== "r-full" {
+    border-top-right-radius: 9999px;
+    border-bottom-right-radius: 9999px;
+  } @else if $type== "b-none" {
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  } @else if $type== "b-sm" {
+    border-bottom-right-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+  } @else if $type== "b" {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  } @else if $type== "b-md" {
+    border-bottom-right-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  } @else if $type== "b-lg" {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  } @else if $type== "b-xl" {
+    border-bottom-right-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  } @else if $type== "b-2xl" {
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  } @else if $type== "b-3xl" {
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  } @else if $type== "b-full" {
+    border-bottom-right-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+  } @else if $type== "l-none" {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  } @else if $type== "l-sm" {
+    border-top-left-radius: 0.125rem;
+    border-bottom-left-radius: 0.125rem;
+  } @else if $type== "l" {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  } @else if $type== "l-md" {
+    border-top-left-radius: 0.375rem;
+    border-bottom-left-radius: 0.375rem;
+  } @else if $type== "l-lg" {
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  } @else if $type== "l-xl" {
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem;
+  } @else if $type== "l-2xl" {
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  } @else if $type== "l-3xl" {
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  } @else if $type== "l-full" {
+    border-top-left-radius: 9999px;
+    border-bottom-left-radius: 9999px;
+  } @else if $type== "tl-none" {
+    border-top-left-radius: 0px;
+  } @else if $type== "tl-sm" {
+    border-top-left-radius: 0.125rem;
+  } @else if $type== "tl" {
+    border-top-left-radius: 0.25rem;
+  } @else if $type== "tl-md" {
+    border-top-left-radius: 0.375rem;
+  } @else if $type== "tl-lg" {
+    border-top-left-radius: 0.5rem;
+  } @else if $type== "tl-xl" {
+    border-top-left-radius: 0.75rem;
+  } @else if $type== "tl-2xl" {
+    border-top-left-radius: 1rem;
+  } @else if $type== "tl-3xl" {
+    border-top-left-radius: 1.5rem;
+  } @else if $type== "tl-full" {
+    border-top-left-radius: 9999px;
+  } @else if $type== "tr-none" {
+    border-top-right-radius: 0px;
+  } @else if $type== "tr-sm" {
+    border-top-right-radius: 0.125rem;
+  } @else if $type== "tr" {
+    border-top-right-radius: 0.25rem;
+  } @else if $type== "tr-md" {
+    border-top-right-radius: 0.375rem;
+  } @else if $type== "tr-lg" {
+    border-top-right-radius: 0.5rem;
+  } @else if $type== "tr-xl" {
+    border-top-right-radius: 0.75rem;
+  } @else if $type== "tr-2xl" {
+    border-top-right-radius: 1rem;
+  } @else if $type== "tr-3xl" {
+    border-top-right-radius: 1.5rem;
+  } @else if $type== "tr-full" {
+    border-top-right-radius: 9999px;
+  } @else if $type== "br-none" {
+    border-bottom-right-radius: 0px;
+  } @else if $type== "br-sm" {
+    border-bottom-right-radius: 0.125rem;
+  } @else if $type== "br" {
+    border-bottom-right-radius: 0.25rem;
+  } @else if $type== "br-md" {
+    border-bottom-right-radius: 0.375rem;
+  } @else if $type== "br-lg" {
+    border-bottom-right-radius: 0.5rem;
+  } @else if $type== "br-xl" {
+    border-bottom-right-radius: 0.75rem;
+  } @else if $type== "br-2xl" {
+    border-bottom-right-radius: 1rem;
+  } @else if $type== "br-3xl" {
+    border-bottom-right-radius: 1.5rem;
+  } @else if $type== "br-full" {
+    border-bottom-right-radius: 9999px;
+  } @else if $type== "bl-none" {
+    border-bottom-left-radius: 0px;
+  } @else if $type== "bl-sm" {
+    border-bottom-left-radius: 0.125rem;
+  } @else if $type== "bl" {
+    border-bottom-left-radius: 0.25rem;
+  } @else if $type== "bl-md" {
+    border-bottom-left-radius: 0.375rem;
+  } @else if $type== "bl-lg" {
+    border-bottom-left-radius: 0.5rem;
+  } @else if $type== "bl-xl" {
+    border-bottom-left-radius: 0.75rem;
+  } @else if $type== "bl-2xl" {
+    border-bottom-left-radius: 1rem;
+  } @else if $type== "bl-3xl" {
+    border-bottom-left-radius: 1.5rem;
+  } @else if $type== "bl-full" {
+    border-bottom-left-radius: 9999px;
+  }
+}
+
+@mixin centerUseFlex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin centerUseTransform {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

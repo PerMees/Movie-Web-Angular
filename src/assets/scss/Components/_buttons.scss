@@ -1,0 +1,25 @@
+.myBtn,
+a.myBtn {
+  @include transition(all, 0.3s, ease);
+  @include rounded("sm");
+  padding: $s-2;
+  border: none;
+  background-color: $white;
+  font-weight: bold;
+  color: $gray-900;
+  &:hover {
+    color: $red-600;
+  }
+}
+
+.myPrimaryBtn,
+a.myPrimaryBtn {
+  @extend .myBtn;
+  font-weight: normal;
+  background-color: $red-600;
+  color: $white;
+  &:hover {
+    color: $white;
+    background-color: $red-700;
+  }
+}
