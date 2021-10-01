@@ -1,8 +1,9 @@
 .myBtn,
 a.myBtn {
-  @include transition(all, 0.3s, ease);
-  @include rounded("sm");
-  padding: $s-2;
+  @include transition(all, 0.5s, ease);
+  @include rounded("md");
+  padding: $s-2 $s-3;
+  margin: $s-2;
   border: none;
   background-color: $white;
   font-weight: bold;

@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 
+a {
+  text-decoration: none !important;
+  @include text($font-normal, $text-base, $line-height-base, $gray-900);
+}
 a,
 button {
   @include transition(all, 0.3s, ease);

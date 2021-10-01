@@ -13,9 +13,10 @@
     box-shadow: $s1 $s2 $s3 $s4 $c;
   }
 }
-@mixin text($fz, $fw, $c) {
+@mixin text($fw, $fz, $lh, $c) {
   font-size: $fz;
   font-weight: $fw;
+  line-height: $lh;
   @if $c != "" {
     color: $c;
   }
@@ -233,4 +234,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }

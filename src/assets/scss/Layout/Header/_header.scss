@@ -1,0 +1,94 @@
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  li.nav-item {
+    text-align: center;
+    padding: 0 $s-2;
+    margin: 0.5rem 0;
+    a.header__link {
+      padding: 0 !important;
+      font-weight: $font-bold;
+      margin: 0 $s-2;
+      position: relative;
+      &::after {
+        @include transition(all, 0.5s, ease);
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0%;
+        left: 50%;
+        transform: translate(0, -50%);
+        height: 1px;
+        background-color: #fb4226;
+      }
+      &:hover::after {
+        left: 0%;
+        width: 100%;
+      }
+    }
+  }
+  .navbar-brand {
+    width: 9.3rem;
+  }
+  .header__info {
+    margin: 0 auto;
+    text-align: center;
+    width: 9.3rem;
+    a {
+      font-weight: $font-bold;
+      &:hover {
+        color: $red-600;
+      }
+    }
+  }
+  .header__control {
+    text-align: center;
+    a {
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (min-width: $md) {
+  .header {
+    li.nav-item {
+      padding: 0 $s-2;
+      border-right: 2px solid $gray-200;
+      &:last-child {
+        border: none;
+      }
+    }
+    .navbar-brand {
+      width: 6rem;
+    }
+    .header__info {
+      margin: 0;
+      text-align: center;
+      width: 10rem;
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .header {
+    .navbar-brand {
+      width: 12rem;
+    }
+    .header__info {
+      text-align: center;
+      width: 12rem;
+    }
+  }
+}
+@media screen and (min-width: $xl) {
+  .header {
+    .navbar-brand {
+      width: 13rem;
+    }
+    .header__info {
+      text-align: center;
+      width: 15rem;
+    }
+  }
+}
