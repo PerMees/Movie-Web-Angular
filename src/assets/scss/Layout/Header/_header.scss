@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   background-color: #fff;
-  z-index: 100000;
+  z-index: 10000;
   li.nav-item {
     text-align: center;
     padding: 0 $s-2;
@@ -31,14 +31,15 @@
     }
   }
   .navbar-brand {
-    width: 9.3rem;
+    width: $w-36;
   }
   .header__info {
     margin: 0 auto;
     text-align: center;
-    width: 9.3rem;
+    width: $w-36;
+
     a {
-      font-weight: $font-bold;
+      @include text($font-bold, $text-base, $line-height-base, $gray-900);
       &:hover {
         color: $red-600;
       }
@@ -56,40 +57,44 @@
   .header {
     li.nav-item {
       padding: 0 $s-2;
-      border-right: 2px solid $gray-200;
+      border-right: $s-0-5 solid $gray-200;
       &:last-child {
         border: none;
       }
     }
     .navbar-brand {
-      width: 6rem;
+      width: $w-24;
     }
     .header__info {
       margin: 0;
       text-align: center;
-      width: 10rem;
+      width: $w-40;
     }
   }
 }
 @media screen and (min-width: $lg) {
   .header {
     .navbar-brand {
-      width: 12rem;
+      width: $w-48;
     }
     .header__info {
       text-align: center;
-      width: 12rem;
+      width: $w-48;
     }
   }
 }
 @media screen and (min-width: $xl) {
   .header {
     .navbar-brand {
-      width: 13rem;
+      width: $w-52;
     }
     .header__info {
       text-align: center;
-      width: 15rem;
+      width: $w-60;
     }
   }
+}
+
+.cdk-overlay-container {
+  z-index: 10001;
 }

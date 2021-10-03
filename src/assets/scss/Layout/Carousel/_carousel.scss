@@ -1,0 +1,162 @@
+.myCarousel {
+  position: relative;
+  .ant-carousel {
+    [nz-carousel-content] {
+      text-align: center;
+      overflow: hidden;
+      .carousel__item {
+        position: relative;
+        .overlay {
+          background-image: linear-gradient(
+            to top,
+            $color-overlay,
+            transparent
+          ) !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: $w-full;
+          height: $h-full;
+          z-index: 10;
+        }
+        img {
+          height: $h-30-screen;
+        }
+      }
+
+      .carousel__play i {
+        @include transition(all, 0.3s, ease);
+        @include centerUseTransform;
+        @include rounded("full");
+        @include text("", $text-3xl, $line-height-play-icon, $color-icon-play);
+        cursor: pointer;
+        z-index: 20;
+        width: $w-16;
+        height: $h-16;
+        border: $s-0-8 solid $color-icon-play;
+        &:hover {
+          color: $white;
+          border: $s-0-8 solid $white;
+        }
+      }
+    }
+    .slick-dots {
+      li.ng-star-inserted {
+        width: fit-content !important;
+        button {
+          margin: 0 $s-2;
+          visibility: hidden;
+          opacity: 1 !important;
+          &::after {
+            @include text("", $text-sm, $line-height-sm, $color-overlay);
+            @include rounded("full");
+            @include transition(all, 0.3s, ease);
+            content: "";
+            opacity: 1 !important;
+            visibility: visible;
+            display: block;
+            padding: 0;
+            background: $color-dots;
+            cursor: pointer;
+            height: $h-3 !important;
+            width: $w-3 !important;
+          }
+        }
+      }
+      li.slick-active {
+        width: fit-content !important;
+        button::after {
+          background: $red-600;
+        }
+      }
+    }
+  }
+  .carousel__btn i svg {
+    font-size: $text-4xl;
+    fill: $color-dots;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 100;
+  }
+  .carousel__btn__prev i svg {
+    left: 3%;
+  }
+  .carousel__btn__next i svg {
+    right: 3%;
+  }
+}
+
+@media screen and (min-width: $xs) {
+  .myCarousel {
+    .ant-carousel {
+      [nz-carousel-content] {
+        .carousel__item {
+          img {
+            height: $h-40-screen;
+          }
+        }
+      }
+    }
+    .carousel__btn i svg {
+      font-size: $text-4xl;
+    }
+    .carousel__btn__prev i svg {
+      left: 2%;
+    }
+    .carousel__btn__next i svg {
+      right: 2%;
+    }
+  }
+}
+@media screen and (min-width: $sm) {
+  .myCarousel {
+    .ant-carousel {
+      [nz-carousel-content] {
+        .carousel__item {
+          img {
+            height: $h-45-screen;
+          }
+        }
+      }
+    }
+    .carousel__btn i svg {
+      font-size: $text-5xl;
+    }
+  }
+}
+@media screen and (min-width: $lg) {
+  .myCarousel {
+    .ant-carousel {
+      [nz-carousel-content] {
+        .carousel__item {
+          img {
+            height: $h-50-screen;
+          }
+        }
+      }
+    }
+    .carousel__btn i svg {
+      font-size: $text-6xl;
+    }
+  }
+}
+@media screen and (min-width: 1200px) {
+  .myCarousel {
+    .ant-carousel {
+      [nz-carousel-content] {
+        .carousel__item {
+          img {
+            height: $h-80-screen;
+          }
+        }
+      }
+    }
+    .carousel__btn__prev i svg {
+      left: 1%;
+    }
+    .carousel__btn__next i svg {
+      right: 1%;
+    }
+  }
+}

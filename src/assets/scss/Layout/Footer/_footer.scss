@@ -21,7 +21,7 @@
     }
     a.footer__top__link {
       color: $gray-400;
-      margin-bottom: 1rem;
+      margin-bottom: $s-4;
       width: fit-content;
       &:hover {
         color: white;
@@ -50,16 +50,16 @@
       }
     }
     .logoSaleNoti {
-      max-width: 100%;
+      max-width: $w-full;
     }
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $md) {
   .footer {
     .footer__top {
       .footer__heading {
         margin-top: 0;
-        height: 2.8rem;
+        height: $h-11;
       }
     }
     .footer__bottom {
@@ -67,7 +67,7 @@
     }
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: $xl) {
   .footer {
     .footer__top {
       .footer__heading {

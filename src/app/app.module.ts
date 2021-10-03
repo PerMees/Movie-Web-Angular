@@ -1,3 +1,4 @@
+import { HeaderInterceptor } from './_core/Guards/Author.interceptor';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeModule } from './Pages/Home/Home.module';
 import { AntdModule } from './_core/Shared/AntdModule/Antd.module';
@@ -9,7 +10,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 
@@ -29,7 +30,10 @@ const routes: Routes = [{ path: '', loadChildren: () => HomeModule }];
     AntdModule,
     StoreModule.forRoot({}, {}),
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

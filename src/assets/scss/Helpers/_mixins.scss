@@ -15,10 +15,12 @@
 }
 @mixin text($fw, $fz, $lh, $c) {
   font-size: $fz;
-  font-weight: $fw;
   line-height: $lh;
   @if $c != "" {
     color: $c;
+  }
+  @if $fw != "" {
+    font-weight: $fw;
   }
 }
 // Border-radius

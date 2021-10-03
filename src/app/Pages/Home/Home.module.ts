@@ -1,3 +1,4 @@
+import { CarouselComponent } from './../../Components/Carousel/Carousel.component';
 import { FooterComponent } from './../../Components/Footer/Footer.component';
 import { HeaderComponent } from './../../Components/Header/Header.component';
 import { HomeComponent } from './Home.component';
@@ -43,7 +44,13 @@ const homeRoutes: Routes = [
     RouterModule.forChild(homeRoutes),
   ],
   exports: [],
-  declarations: [HomeTemplateComponent, HeaderComponent, FooterComponent],
+  declarations: [
+    HomeTemplateComponent,
+    HeaderComponent,
+    CarouselComponent,
+    HomeComponent,
+    FooterComponent,
+  ],
   providers: [],
 })
 export class HomeModule {}
