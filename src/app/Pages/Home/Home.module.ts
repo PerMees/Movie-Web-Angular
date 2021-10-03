@@ -1,3 +1,4 @@
+import { FooterComponent } from './../../Components/Footer/Footer.component';
 import { HeaderComponent } from './../../Components/Header/Header.component';
 import { HomeComponent } from './Home.component';
 import { AntdModule } from './../../_core/Shared/AntdModule/Antd.module';
@@ -42,7 +43,7 @@ const homeRoutes: Routes = [
     RouterModule.forChild(homeRoutes),
   ],
   exports: [],
-  declarations: [HomeTemplateComponent, HeaderComponent],
+  declarations: [HomeTemplateComponent, HeaderComponent, FooterComponent],
   providers: [],
 })
 export class HomeModule {}

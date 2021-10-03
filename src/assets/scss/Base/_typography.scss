@@ -1,8 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Quicksand:wght@300;400;500;600;700&display=swap");
 
+a,
+p,
+span,
+b,
+small,
+h4,
+h5,
+h6 {
+  @include text($font-normal, $text-sm, $line-height-sm, $gray-900);
+}
+h3 {
+  @include text($font-bold, $text-base, $line-height-base, $gray-900);
+}
+h2 {
+  @include text($font-bold, $text-lg, $line-height-lg, $gray-900);
+}
+h1 {
+  @include text($font-bold, $text-xl, $line-height-xl, $gray-900);
+}
 a {
   text-decoration: none !important;
-  @include text($font-normal, $text-base, $line-height-base, $gray-900);
 }
 a,
 button {
