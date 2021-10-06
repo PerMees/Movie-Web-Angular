@@ -1,3 +1,4 @@
+import { IFilmDetail } from './../Model/FIlm/FilmDetail.model';
 import { BASE_URL } from './../Utils/setting';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -9,6 +10,12 @@ export class FilmService {
   getBannerFilm(): Observable<any> {
     let obser = this.httpClient.get(
       `${BASE_URL}/api/QuanLyPhim/LayDanhSachBanner`
+    );
+    return obser;
+  }
+  getFilmDetail(maPhim: number): Observable<any> {
+    let obser = this.httpClient.get(
+      `${BASE_URL}/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`
     );
     return obser;
   }

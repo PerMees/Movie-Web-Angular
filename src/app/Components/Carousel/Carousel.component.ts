@@ -1,7 +1,13 @@
-import { IBannerFilm } from './../../_core/Model/BannerFilm.modal';
+import { IFilm } from './../../_core/Model/FIlm/Film.model';
+import { FilmReducer } from './../../_core/NGRXStore/Reducers/Film.reducer';
+import { IFilmDetail } from './../../_core/Model/FIlm/FilmDetail.model';
+import { SHOW_TRAILER } from './../../_core/NGRXStore/Types/Film.type';
+import { Store } from '@ngrx/store';
+import { IBannerFilm } from '../../_core/Model/FIlm/BannerFilm.model';
 import { FilmService } from './../../_core/Services/Film.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NzCarouselComponent } from 'ng-zorro-antd/carousel';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-carousel',
@@ -12,7 +18,12 @@ import { NzCarouselComponent } from 'ng-zorro-antd/carousel';
           <div class="carousel__item">
             <div class="overlay"></div>
             <img [src]="banner.hinhAnh" alt="" class="w-100" />
-            <div class="carousel__play">
+            <div
+              class="carousel__play"
+              (click)="showTrailer(banner.maPhim)"
+              data-toggle="modal"
+              data-target="#modelId"
+            >
               <i class="fa fa-play"></i>
             </div>
           </div>
@@ -28,16 +39,22 @@ import { NzCarouselComponent } from 'ng-zorro-antd/carousel';
     </div>
   `,
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnInit, OnDestroy {
   @ViewChild(NzCarouselComponent) antdCarousel!: NzCarouselComponent;
+  sub!: Subscription;
   arrayBanner: IBannerFilm[] = [];
 
-  constructor(private filmService: FilmService) {}
+  constructor(private filmService: FilmService, private store: Store) {}
   next() {
     this.antdCarousel.next();
   }
   prev() {
     this.antdCarousel.pre();
+  }
+  showTrailer(maPhim: number) {
+    this.filmService.getFilmDetail(maPhim).subscribe((res) => {
+      this.store.dispatch({ type: SHOW_TRAILER, film: res.content });
+    });
   }
   ngOnInit() {
     this.filmService.getBannerFilm().subscribe(
@@ -49,5 +66,10 @@ export class CarouselComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  ngOnDestroy() {
+    if (this.sub) {
+      this.sub.unsubscribe;
+    }
   }
 }

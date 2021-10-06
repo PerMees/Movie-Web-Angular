@@ -1,3 +1,5 @@
+import { FilmReducer } from './_core/NGRXStore/Reducers/Film.reducer';
+import { TrailerModalComponent } from './Components/TrailerModal/TrailerModal.component';
 import { HeaderInterceptor } from './_core/Guards/Author.interceptor';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeModule } from './Pages/Home/Home.module';
@@ -20,7 +22,7 @@ registerLocaleData(en);
 const routes: Routes = [{ path: '', loadChildren: () => HomeModule }];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TrailerModalComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
@@ -28,8 +30,9 @@ const routes: Routes = [{ path: '', loadChildren: () => HomeModule }];
     HttpClientModule,
     BrowserAnimationsModule,
     AntdModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ FilmReducer }),
   ],
+  exports: [TrailerModalComponent],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
