@@ -1,10 +1,7 @@
-import { IFilm } from './../../_core/Model/FIlm/Film.model';
-import { FilmReducer } from './../../_core/NGRXStore/Reducers/Film.reducer';
-import { IFilmDetail } from './../../_core/Model/FIlm/FilmDetail.model';
-import { SHOW_TRAILER } from './../../_core/NGRXStore/Types/Film.type';
+import { SHOW_TRAILER } from '../../_core/NGRXStore/Types/Film.type';
 import { Store } from '@ngrx/store';
 import { IBannerFilm } from '../../_core/Model/FIlm/BannerFilm.model';
-import { FilmService } from './../../_core/Services/Film.service';
+import { FilmService } from '../../_core/Services/Film.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { NzCarouselComponent } from 'ng-zorro-antd/carousel';
 import { Subscription } from 'rxjs';
@@ -39,7 +36,7 @@ import { Subscription } from 'rxjs';
     </div>
   `,
 })
-export class CarouselComponent implements OnInit, OnDestroy {
+export class SliderComponent implements OnInit, OnDestroy {
   @ViewChild(NzCarouselComponent) antdCarousel!: NzCarouselComponent;
   sub!: Subscription;
   arrayBanner: IBannerFilm[] = [];
@@ -59,7 +56,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.filmService.getBannerFilm().subscribe(
       (res) => {
-        console.log(res);
         this.arrayBanner = res.content;
       },
       (err) => {

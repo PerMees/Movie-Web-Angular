@@ -1,4 +1,7 @@
-import { CarouselComponent } from './../../Components/Carousel/Carousel.component';
+import { PipeModule } from './../../_core/Shared/PipeModule/Pipe.module';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ListFilmComponent } from './../../Components/ListFilm/ListFilm.component';
+import { SliderComponent } from '../../Components/Slider/Slider.component';
 import { FooterComponent } from './../../Components/Footer/Footer.component';
 import { HeaderComponent } from './../../Components/Header/Header.component';
 import { HomeComponent } from './Home.component';
@@ -38,17 +41,20 @@ const homeRoutes: Routes = [
 
 @NgModule({
   imports: [
+    CarouselModule,
     CommonModule,
     FormsModule,
     AntdModule,
+    PipeModule,
     RouterModule.forChild(homeRoutes),
   ],
   exports: [],
   declarations: [
     HomeTemplateComponent,
     HeaderComponent,
-    CarouselComponent,
+    SliderComponent,
     HomeComponent,
+    ListFilmComponent,
     FooterComponent,
   ],
   providers: [],

@@ -10,8 +10,11 @@
 // Layouts
 @import "./Layout/Header/header";
 @import "./Layout/Carousel/carousel";
+@import "./Layout/ListFilm/listFilm";
 @import "./Layout/Footer/footer";
 // Pages
 @import "./Pages/notFound";
 // Themes
 // Vendors
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
