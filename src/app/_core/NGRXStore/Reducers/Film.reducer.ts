@@ -1,5 +1,5 @@
 import { IFilm } from './../../Model/FIlm/Film.model';
-import { SHOW_TRAILER } from './../Types/Film.type';
+import { SHOW_TRAILER, GET_FILM_DETAIL } from './../Types/Film.type';
 
 let initialState: IFilm = {
   filmDetail: {
@@ -20,9 +20,13 @@ let initialState: IFilm = {
 
 export const FilmReducer = (state: IFilm = initialState, action: any) => {
   switch (action.type) {
-    case SHOW_TRAILER: {
+    case SHOW_TRAILER:
+    case GET_FILM_DETAIL: {
       return { ...state, filmDetail: action.film };
     }
+    // case GET_FILM_DETAIL: {
+    //   return { ...state, filmDetail: action.film };
+    // }
     default:
       return { ...state };
   }

@@ -1,7 +1,5 @@
 import { Subscription } from 'rxjs';
 import { IFilm } from './../../_core/Model/FIlm/Film.model';
-import { IFilmDetail } from './../../_core/Model/FIlm/FilmDetail.model';
-import { FilmReducer } from './../../_core/NGRXStore/Reducers/Film.reducer';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -67,6 +65,8 @@ export class TrailerModalComponent implements OnInit, OnDestroy {
     });
   }
   ngOnDestroy() {
-    this.sub.unsubscribe;
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

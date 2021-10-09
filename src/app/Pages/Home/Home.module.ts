@@ -1,3 +1,5 @@
+import { DetailFilmComponent } from './../../Components/DetailFilm/DetailFilm.component';
+import { DetailComponent } from './Detail.component';
 import { PipeModule } from './../../_core/Shared/PipeModule/Pipe.module';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ListFilmComponent } from './../../Components/ListFilm/ListFilm.component';
@@ -19,10 +21,9 @@ const homeRoutes: Routes = [
     component: HomeTemplateComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: '**', component: NotFoundComponent },
       // { path: 'contact', component: ContactComponent },
-      // { path: 'details/:id', component: DetailsComponent },
-      // { path: 'details', component: DetailsComponent },
+      { path: 'detail/:id', component: DetailComponent },
+      { path: 'detail', component: DetailComponent },
       // { path: 'form', component: FormComponent },
       // { path: 'login', component: LoginComponent },
       // {
@@ -56,6 +57,8 @@ const homeRoutes: Routes = [
     HomeComponent,
     ListFilmComponent,
     FooterComponent,
+    DetailFilmComponent,
+    DetailComponent,
   ],
   providers: [],
 })

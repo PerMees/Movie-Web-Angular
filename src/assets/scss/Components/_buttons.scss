@@ -2,13 +2,18 @@
 a.myBtn {
   @include transition(all, 0.5s, ease);
   @include rounded("md");
-  @include text($font-bold, $text-base, $line-height-base, $gray-900);
+  @include text($font-bold, $text-sm, $line-height-sm, $gray-900);
   padding: $s-2 $s-3;
   margin: $s-2;
   border: none;
   background-color: $white;
   &:hover {
     color: $red-600;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border: none;
   }
 }
 

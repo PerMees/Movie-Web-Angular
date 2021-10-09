@@ -1,0 +1,107 @@
+.detailFilm {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-blend-mode: overlay;
+  padding: 0px;
+  overflow: hidden;
+  > div {
+    @include glassmorphism;
+    padding: $s-3 0;
+    .detailFilm__left {
+      img {
+        @include rounded("");
+        @include shadow("");
+        height: $h-80;
+        width: $w-56;
+        margin: $s-4 auto;
+        margin-top: $s-1-5;
+        display: block;
+      }
+    }
+    .detailFilm__right {
+      h3 {
+        @include text($font-bold, $text-2xl, $line-height-2xl, $white);
+      }
+      p {
+        color: $white;
+        opacity: 0.75;
+      }
+      .detailFilm__bottom {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        ul {
+          grid-column: span 2 / span 2;
+          margin-top: $s-5;
+          p {
+            color: $white !important;
+            opacity: 1;
+            b {
+              @include text($font-bold, $text-base, $line-height-base, $white);
+              display: inline-block;
+              width: $w-48;
+            }
+          }
+          .filmDetail__button {
+            text-align: center;
+            margin: 0 auto;
+            .myPrimaryBtn {
+              padding: $s-2;
+              width: $s-32;
+              i {
+                margin-right: $s-1;
+              }
+            }
+          }
+        }
+        .ant-progress {
+          text-align: center;
+          grid-row-start: 1;
+          .ant-progress-circle .ant-progress-text {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .detailFilm {
+    > div {
+      .detailFilm__right {
+        .detailFilm__bottom {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          ul {
+            .filmDetail__button {
+              text-align: left;
+              margin: 0;
+              .myPrimaryBtn {
+                margin: 0;
+                margin-right: $s-4;
+              }
+            }
+          }
+          .ant-progress {
+            grid-column-start: 3;
+            grid-row-start: 1;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  .detailFilm {
+    > div {
+      .detailFilm__right {
+        p {
+          color: $white;
+          opacity: 0.75;
+          width: $w-3_4;
+        }
+      }
+    }
+  }
+}

@@ -34,7 +34,14 @@ import * as _ from 'lodash';
               >
                 <ng-template carouselSlide>
                   <div class="listFilm__item">
-                    <div class="card ">
+                    <a
+                      class="card"
+                      [routerLink]="['/detail']"
+                      [queryParams]="{
+                        maPhim: arrListFilmRender[index][0].maPhim,
+                        tenPhim: arrListFilmRender[index][0].tenPhim
+                      }"
+                    >
                       <div class="card-top">
                         <div class="overlay">
                           <i class="fa fa-play text-center"></i>
@@ -44,18 +51,25 @@ import * as _ from 'lodash';
                       <div class="card-body py-0">
                         <h3>
                           {{
-                            arrListFilmRender[index][0].tenPhim | shortcut: 25
+                            arrListFilmRender[index][0].tenPhim | shortcut: 23
                           }}
                         </h3>
                         <p>{{ arrListFilmRender[index][0].danhGia }}/10</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                   <div
                     class="listFilm__item"
                     *ngIf="arrListFilmRender[index][1]"
                   >
-                    <div class="card ">
+                    <a
+                      class="card"
+                      [routerLink]="['/detail']"
+                      [queryParams]="{
+                        maPhim: arrListFilmRender[index][1].maPhim,
+                        tenPhim: arrListFilmRender[index][1].tenPhim
+                      }"
+                    >
                       <div class="card-top">
                         <div class="overlay">
                           <i class="fa fa-play text-center"></i>
@@ -65,12 +79,12 @@ import * as _ from 'lodash';
                       <div class="card-body py-0">
                         <h3>
                           {{
-                            arrListFilmRender[index][1].tenPhim | shortcut: 25
+                            arrListFilmRender[index][1].tenPhim | shortcut: 23
                           }}
                         </h3>
                         <p>{{ arrListFilmRender[index][1].danhGia }}/10</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </ng-template>
               </ng-container>
@@ -154,6 +168,8 @@ export class ListFilmComponent implements OnInit, OnDestroy {
     );
   }
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 }

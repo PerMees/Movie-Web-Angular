@@ -12,9 +12,10 @@
 @import "./Layout/Carousel/carousel";
 @import "./Layout/ListFilm/listFilm";
 @import "./Layout/Footer/footer";
+@import "./Layout/DetailFilm/detailFilm";
 // Pages
 @import "./Pages/notFound";
 // Themes
 // Vendors
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import "~ngx-owl-carousel-o/lib/styles/scss/owl.carousel";
+@import "~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default";

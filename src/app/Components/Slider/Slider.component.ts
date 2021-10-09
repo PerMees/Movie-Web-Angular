@@ -65,7 +65,7 @@ export class SliderComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy() {
     if (this.sub) {
-      this.sub.unsubscribe;
+      this.sub.unsubscribe();
     }
   }
 }
